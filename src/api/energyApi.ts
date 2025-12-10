@@ -3,9 +3,8 @@ import { DailyMix, ChargeWindow } from '@/types';
 
 const USE_MOCK = false;
 const BASE_URL_ENV = process.env.API_BASE_URL;
-const FALLBACK_URL = 'http://localhost:8080/api/v1';
 
-const BASE_URL = BASE_URL_ENV || FALLBACK_URL;
+const BASE_URL = BASE_URL_ENV;
 
 console.log(`Using API Base URL: ${BASE_URL}`)
 
