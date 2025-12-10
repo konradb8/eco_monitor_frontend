@@ -16,11 +16,11 @@ export const ChargingCalculator = () => {
         setError(null);
         try {
             const result = await fetchOptimalCharging(durationValue);
-            console.log("Dane otrzymane z API:", result);
+            console.log("API response:", result);
             setChargeWindow(result);
         } catch (err) {
             console.error(err);
-            setError("Nie udało się pobrać danych.");
+            setError("Cannot load data.");
         } finally {
             setLoading(false);
         }
@@ -30,7 +30,7 @@ export const ChargingCalculator = () => {
         if (!dateStr) return '-';
         try {
             const date = new Date(dateStr);
-            if (isNaN(date.getTime())) return "Błąd daty";
+            if (isNaN(date.getTime())) return "DateTime Error";
 
             return date.toLocaleString('pl-PL', {
                 day: '2-digit',

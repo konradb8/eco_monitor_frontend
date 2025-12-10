@@ -13,11 +13,11 @@ export const SmartChargeComponent = () => {
         setError(null);
         try {
             const result = await fetchOptimalCharging(duration);
-            console.log("Dane w komponencie:", result);
+            console.log("Data:", result);
             setChargeWindow(result);
         } catch (err) {
             console.error(err);
-            setError("Nie udało się pobrać danych.");
+            setError("Cannot load data.");
         } finally {
             setLoading(false);
         }
@@ -27,7 +27,7 @@ export const SmartChargeComponent = () => {
         if (!dateStr) return '-';
         try {
             const date = new Date(dateStr);
-            if (isNaN(date.getTime())) return "Błąd daty";
+            if (isNaN(date.getTime())) return "DateTime Error";
 
             return date.toLocaleString('pl-PL', {
                 day: '2-digit',
